@@ -25,13 +25,12 @@ class Solution(object):
         # [1, 2, 3, 4]
         # Iteration of the loop goes:
         # - 12, 13, 14, 23, 24, 34
-        for i in range(nums):
-            for i+1 in range(nums):
-
-
-            if == target:
-                low = i
-                high = j
+        for i in range(len(nums)-1):
+            j = i+1
+            while j < len(nums):
+               if nums[i] + nums[j] == target:
+                    low = i
+                    high = j
 
         return list(low, high)
 
