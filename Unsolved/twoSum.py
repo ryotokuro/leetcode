@@ -15,7 +15,7 @@
 # return [0, 1].
 
 class Solution(object):
-    def twoSum(self, nums, target):
+    def twoSum(self, nums: 'List[int]', target: 'int') -> 'List[int]':
         """
         :type nums: List[int]
         :type target: int
@@ -25,13 +25,18 @@ class Solution(object):
         # [1, 2, 3, 4]
         # Iteration of the loop goes:
         # - 12, 13, 14, 23, 24, 34
+
         for i in range(len(nums)-1):
             j = i+1
             while j < len(nums):
                 if nums[i] + nums[j] == target:
                     break
 
+                else:
+                    return None # edge case where none of them add to the target
+
         return list(i, j)
 
+
 # Test Cases
-Solution.twoSum(Solution, [1, 3, 5], 6)
+print(Solution.twoSum(Solution, [1, 3, 5], 6))
