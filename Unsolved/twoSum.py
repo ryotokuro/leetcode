@@ -28,11 +28,10 @@ class Solution(object):
         for i in range(len(nums)-1):
             j = i+1
             while j < len(nums):
-               if nums[i] + nums[j] == target:
-                    low = i
-                    high = j
+                if nums[i] + nums[j] == target:
+                    break
 
-        return list(low, high)
+        return list(i, j)
 
 # Test Cases
 Solution.twoSum(Solution, [1, 3, 5], 6)
