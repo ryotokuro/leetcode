@@ -21,11 +21,19 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        # Pseudo-example:
+        # [1, 2, 3, 4]
+        # Iteration of the loop goes:
+        # - 12, 13, 14, 23, 24, 34
         for i in range(nums):
-            for j in range(nums)
+            for i+1 in range(nums):
+
 
             if == target:
                 low = i
                 high = j
 
         return list(low, high)
+
+# Test Cases
+Solution.twoSum(Solution, [1, 3, 5], 6)
