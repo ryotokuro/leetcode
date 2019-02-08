@@ -26,15 +26,19 @@ class Solution(object):
         # Iteration of the loop goes:
         # - 12, 13, 14, 23, 24, 34
 
+        targetReached = False
         for i in range(len(nums)-1):
             j = i+1
             while j < len(nums):
                 if nums[i] + nums[j] == target:
-                    
+                    targetReached = True
+                    break
 
                 else:
                     return None # edge case where none of them add to the target
 
+            if targetReached:
+                break
         return list(i, j)
 
 
