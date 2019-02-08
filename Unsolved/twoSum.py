@@ -30,7 +30,7 @@ class Solution(object):
             j = i+1
             while j < len(nums):
                 if nums[i] + nums[j] == target:
-                    break
+                    
 
                 else:
                     return None # edge case where none of them add to the target
@@ -39,4 +39,5 @@ class Solution(object):
 
 
 # Test Cases
-print(Solution.twoSum(Solution, [1, 3, 5], 6))
+print(Solution.twoSum(Solution, [2, 7, 11, 15], 9))
+assert(Solution.twoSum(Solution, [0, 0, 0], 1))
