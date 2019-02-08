@@ -14,6 +14,7 @@
 # Because nums[0] + nums[1] = 2 + 7 = 9,
 # return [0, 1].
 
+
 class Solution(object):
     def twoSum(self, nums: 'List[int]', target: 'int') -> 'List[int]':
         """
@@ -39,7 +40,7 @@ class Solution(object):
 
             if targetReached:
                 break
-        return list(i, j)
+        return list[i, j]
 
 
 # Test Cases
