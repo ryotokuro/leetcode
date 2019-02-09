@@ -40,9 +40,10 @@ class Solution(object):
 
             if targetReached:
                 break
-        return list[i, j]
+        return [i, j]
 
 
 # Test Cases
 print(Solution.twoSum(Solution, [2, 7, 11, 15], 9))
-assert(Solution.twoSum(Solution, [0, 0, 0], 1))
+print(Solution.twoSum(Solution, [0, 0, 0], 1))
+print
