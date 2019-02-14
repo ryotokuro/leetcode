@@ -46,4 +46,4 @@ class Solution(object):
 # Test Cases
 print(Solution.twoSum(Solution, [2, 7, 11, 15], 9))
 print(Solution.twoSum(Solution, [0, 0, 0], 1))
-print
+print(Solution.twoSum(Solution, [3, 2, 4], 6))
