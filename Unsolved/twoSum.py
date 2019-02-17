@@ -28,6 +28,7 @@ class Solution(object):
         # - 12, 13, 14, 23, 24, 34
 
         targetReached = False
+        print("ay", range(len(nums)-1))
         for i in range(len(nums)-1):
             j = i+1
             while j < len(nums):
@@ -35,11 +36,14 @@ class Solution(object):
                     targetReached = True
                     break
 
-                else:
-                    return None # edge case where none of them add to the target
+                j += 1  # need to increment or stuck in loop
 
             if targetReached:
                 break
+
+        if not targetReached:
+            return None  # edge case where none of them add to the target
+
         return [i, j]
 
 
