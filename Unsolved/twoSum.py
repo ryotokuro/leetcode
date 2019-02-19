@@ -28,7 +28,7 @@ class Solution(object):
         # - 12, 13, 14, 23, 24, 34
 
         targetReached = False
-        
+
         for i in range(len(nums)-1):
             j = i+1
             while j < len(nums):
