@@ -32,7 +32,9 @@ class Solution(object):
         # using HASH TABLE - trading space for time
         nums['one'] = nums[0]
         nums['two'] = nums[1]
-        nums['']
+        nums['three'] = nums[2]
+
+        if nums['one'] + nums[1]
         
         for i in range(len(nums)-1):
             j = i+1
