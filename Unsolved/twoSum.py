@@ -29,6 +29,11 @@ class Solution(object):
 
         targetReached = False
 
+        # using HASH TABLE - trading space for time
+        nums['one'] = nums[0]
+        nums['two'] = nums[1]
+        nums['']
+        
         for i in range(len(nums)-1):
             j = i+1
             while j < len(nums):
