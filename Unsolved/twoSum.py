@@ -30,28 +30,17 @@ class Solution(object):
         targetReached = False
 
         # using HASH TABLE - trading space for time
-        nums['one'] = nums[0]
-        nums['two'] = nums[1]
-        nums['three'] = nums[2]
+        # first add element value and index to the table
+        hashMap = dict()
+        for i in range(len(nums)):
+            hashMap[str(i)] = nums[i]
 
-        if nums['one'] + nums[1]
-        
-        for i in range(len(nums)-1):
-            j = i+1
-            while j < len(nums):
-                if nums[i] + nums[j] == target:
-                    targetReached = True
-                    break
+        print(hashMap)
+        # then check if elements complement exists in table (target - nums[i])
+        # but CANNOT be nums[i] itself! (index must be different)
 
-                j += 1  # need to increment or stuck in loop
-
-            if targetReached:
-                break
-
-        if not targetReached:
-            return None  # edge case where none of them add to the target
-
-        return [i, j]
+        return 1
+        #return [i, j]
 
 
 # Test Cases
