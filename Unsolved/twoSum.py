@@ -27,8 +27,6 @@ class Solution(object):
         # Iteration of the loop goes:
         # - 12, 13, 14, 23, 24, 34
 
-        targetReached = False
-
         # using HASH TABLE - trading space for time
         # first add element value and index to the table
         hashMap = dict()
@@ -40,8 +38,8 @@ class Solution(object):
         # but CANNOT be nums[i] itself! (index must be different)
         for i in range(len(nums)):
             complement = target - nums[i]
-            if complement in hashMap.values() and complement != nums[i]:
-                return [i, list(hashMap.keys())[list(hashMap.values()).index(complement)]]
+            if complement in hashMap.values() and int(list(hashMap.keys())[list(hashMap.values()).index(complement)]) != nums[i]:
+                return [i, int(list(hashMap.keys())[list(hashMap.values()).index(complement)])]
 
         return None
         #return [i, j]
@@ -51,3 +49,4 @@ class Solution(object):
 print(Solution.twoSum(Solution, [2, 7, 11, 15], 9))
 print(Solution.twoSum(Solution, [0, 0, 0], 1))
 print(Solution.twoSum(Solution, [3, 2, 4], 6))
+print(Solution.twoSum(Solution, [3, 3], 6))
