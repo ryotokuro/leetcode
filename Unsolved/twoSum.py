@@ -38,15 +38,11 @@ class Solution(object):
         # but CANNOT be nums[i] itself! (index must be different)
         for i in range(len(nums)):
             complement = target - nums[i]
-            
+
             if complement in hashMap.values():
-
                 if int(list(hashMap.keys())[list(hashMap.values()).index(complement)]) != i:
-                    print("this")
                     return [i, int(list(hashMap.keys())[list(hashMap.values()).index(complement)])]
-
         return None
-        #return [i, j]
 
 
 # Test Cases
