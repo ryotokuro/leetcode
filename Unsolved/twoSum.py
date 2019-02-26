@@ -38,15 +38,19 @@ class Solution(object):
         # but CANNOT be nums[i] itself! (index must be different)
         for i in range(len(nums)):
             complement = target - nums[i]
-            if complement in hashMap.values() and int(list(hashMap.keys())[list(hashMap.values()).index(complement)]) != nums[i]:
-                return [i, int(list(hashMap.keys())[list(hashMap.values()).index(complement)])]
+            
+            if complement in hashMap.values():
+
+                if int(list(hashMap.keys())[list(hashMap.values()).index(complement)]) != i:
+                    print("this")
+                    return [i, int(list(hashMap.keys())[list(hashMap.values()).index(complement)])]
 
         return None
         #return [i, j]
 
 
 # Test Cases
+print(Solution.twoSum(Solution, [3, 3], 6))
 print(Solution.twoSum(Solution, [2, 7, 11, 15], 9))
 print(Solution.twoSum(Solution, [0, 0, 0], 1))
 print(Solution.twoSum(Solution, [3, 2, 4], 6))
-print(Solution.twoSum(Solution, [3, 3], 6))
