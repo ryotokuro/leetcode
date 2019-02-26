@@ -38,8 +38,12 @@ class Solution(object):
         print(hashMap)
         # then check if elements complement exists in table (target - nums[i])
         # but CANNOT be nums[i] itself! (index must be different)
+        for i in range(len(nums)):
+            complement = target - nums[i]
+            if complement in hashMap.values() and complement != nums[i]:
+                return [i, list(hashMap.keys())[list(hashMap.values()).index(complement)]]
 
-        return 1
+        return None
         #return [i, j]
 
 
