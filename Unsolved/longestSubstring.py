@@ -28,15 +28,15 @@ def longestSubstring(string):
         else:
             # compare with longest and store
             # set longest to max(len(substring), len(longest))
-            print(len(longest))
-            longest = max(len(substring), len(longest))
+            print(substring, longest, max(substring, longest))
+            longest = max(substring, longest)
             # start new substring
             substring = string[i]
-
+    print(longest)
     return len(longest)
 
 
 # SETUP INPUT METHOD
 string = str(input("Input: "))
 print("Output:", longestSubstring(string))
-print("Explanation: The answer is " + longest, "with the length of", maxLen)
+# print("Explanation: The answer is " + longest, "with the length of", maxLen)
