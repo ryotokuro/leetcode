@@ -19,8 +19,16 @@ def longestSubstring(string):
     currLen, maxLen = 0, 0
     longest, substring = "", ""
 
+    # check letter doesn't already exist in the substring
+    # e.g. if('a' not in substring)
 
+    # if not in the substring then append
 
+    # else (it is in the substring = repeating character)
+    # compare with longest and store
+    # set longest to max(len(substring), len(longest))
+
+    # start new substring
     return maxLen
 
 
