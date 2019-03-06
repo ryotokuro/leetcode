@@ -16,20 +16,24 @@
 # substring - tracks current substring (not necessary but only for print purpose)
 # index - keep track of index :)
 def longestSubstring(string):
-    currLen, maxLen = 0, 0
     longest, substring = "", ""
 
     # check letter doesn't already exist in the substring
     # e.g. if('a' not in substring)
+    for i in range(len(string)):
+        # if not in the substring then append
+        if string[i] not in substring:
+            substring += (string[i])
+        # else (it is in the substring = repeating character)
+        else:
+            # compare with longest and store
+            # set longest to max(len(substring), len(longest))
+            print(len(longest))
+            longest = max(len(substring), len(longest))
+            # start new substring
+            substring = string[i]
 
-    # if not in the substring then append
-
-    # else (it is in the substring = repeating character)
-    # compare with longest and store
-    # set longest to max(len(substring), len(longest))
-
-    # start new substring
-    return maxLen
+    return len(longest)
 
 
 # SETUP INPUT METHOD
