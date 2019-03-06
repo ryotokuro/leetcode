@@ -28,11 +28,12 @@ def longestSubstring(string):
         else:
             # compare with longest and store
             # set longest to max(len(substring), len(longest))
-            print(substring, longest, max(substring, longest))
-            longest = max(substring, longest)
+            if len(substring) > len(longest):
+                longest = substring
+
             # start new substring
             substring = string[i]
-    print(longest)
+
     return len(longest)
 
 
