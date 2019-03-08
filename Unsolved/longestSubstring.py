@@ -34,6 +34,10 @@ def longestSubstring(string):
             # start new substring
             substring = string[i]
 
+        print(ord(' '))
+        if ord(longest) == 32:
+            return 1
+
     return len(longest)
 
 
