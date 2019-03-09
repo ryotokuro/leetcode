@@ -16,6 +16,10 @@
 # substring - tracks current substring (not necessary but only for print purpose)
 # index - keep track of index :)
 def longestSubstring(string):
+    # in the case of an empty string
+    if len(string) == 1:
+        return 1
+
     longest, substring = "", ""
 
     # check letter doesn't already exist in the substring
@@ -34,9 +38,8 @@ def longestSubstring(string):
             # start new substring
             substring = string[i]
 
-        print(ord(' '))
-        if ord(longest) == 32:
-            return 1
+    if len(substring) > len(longest):
+        longest = substring
 
     return len(longest)
 
