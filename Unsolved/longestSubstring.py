@@ -1,6 +1,12 @@
+# EXAMPLE 1
 # Input: "abcabcbb"
 # Output: 3
 # Explanation: The answer is "abc", with the length of 3.
+
+# EXAMPLE 2
+# Input: "dvdf"
+# Output: 3
+# Explanation: The answer is "vdf", with the length of 3.
 
 # PLAN
 # Consider substrings CASE by CASE
@@ -8,13 +14,13 @@
 # At the end, compare maxCount with the current count
 
 # WHAT I NEED
-# currLen - tracks count of the case
-# maxLen - length of biggest substring
+# substring - tracks current substring
 # longest - stores the longest substring
 
 # OPTIONAL
-# substring - tracks current substring (not necessary but only for print purpose)
 # index - keep track of index :)
+
+
 def longestSubstring(string):
     # in the case of an empty string
     if len(string) == 1:
