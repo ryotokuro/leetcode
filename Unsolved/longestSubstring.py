@@ -25,20 +25,19 @@ def longestSubstring(string):
     # check letter doesn't already exist in the substring
     # e.g. if('a' not in substring)
     for i in range(len(string)):
+        # start new substring
+        substring = string[i]
+
         # might need two for loops and run through two instances of the loop
         for j in range(i+1, len(string)):
-        # if not in the substring then append
-        if string[i] not in substring:
-            substring += (string[i])
-        # else (it is in the substring = repeating character)
-        else:
-            # compare with longest and store
-            # set longest to max(len(substring), len(longest))
-            if len(substring) > len(longest):
-                longest = substring
-
-            # start new substring
-            substring = string[i]
+            # if not in the substring then append
+            if string[j] not in substring:
+                substring += (string[j])
+            # else (it is in the substring = repeating character)
+            else:
+                # compare with longest and store
+                if len(substring) > len(longest):
+                    longest = substring  # set longest to max(len(substring), len(longest))
 
     if len(substring) > len(longest):
         longest = substring
