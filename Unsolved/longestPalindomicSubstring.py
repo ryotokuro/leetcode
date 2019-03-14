@@ -4,3 +4,10 @@
 # Input: "babad"
 # Output: "bab"
 # Note: "aba" is also a valid answer.
+
+def longestPalindromicSubString():
+
+    return
+
+string = str(input())
+print(longestPalindromicSubString())
