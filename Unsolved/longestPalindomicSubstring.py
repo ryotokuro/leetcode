@@ -5,9 +5,11 @@
 # Output: "bab"
 # Note: "aba" is also a valid answer.
 
-def longestPalindromicSubString():
+
+def longestPalindromicSubString(string):
 
     return
 
+
 string = str(input())
-print(longestPalindromicSubString())
+print(longestPalindromicSubString(string))
