@@ -7,7 +7,8 @@
 
 
 def longestPalindromicSubString(string):
-
+    window = dict()
+    
     return
 
 
