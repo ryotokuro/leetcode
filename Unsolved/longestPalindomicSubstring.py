@@ -9,9 +9,11 @@
 def longestPalindromicSubString(string):
     window = dict()
 
-    for i in range(string):
+    for i in range(len(string)):
         if string[i] not in window:
-            window[string] = string[i]
+            window[string[i]] += 1
+            print(window)
+
     return
 
 
