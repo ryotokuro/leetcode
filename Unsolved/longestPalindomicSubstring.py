@@ -8,7 +8,10 @@
 
 def longestPalindromicSubString(string):
     window = dict()
-    
+
+    for i in range(string):
+        if string[i] not in window:
+            window[string] = string[i]
     return
 
 
