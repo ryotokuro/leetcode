@@ -8,19 +8,16 @@
 
 def longestPalindromicSubString(string):
     # make a copy of string reversed
+    stringIndexes = dict()
+    reversedString = reversed(string)
+    print(reversedString)
 
-    reverse = reversed(string)
-
-    # compare reverseString with string for longest
+    # compare reversedString with string for longest substring
     for i in range(len(string)):
-        if string[i] not in window:
-            window[string[i]] += 1
-            print(window)
+        if string[i] == reversedString[i]:
+            stringIndexes[string[i]] = 1
 
-        else:
-
-
-    return
+    return "yes"
 
 
 string = str(input())
