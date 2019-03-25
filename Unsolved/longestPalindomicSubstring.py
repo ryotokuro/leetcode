@@ -7,12 +7,18 @@
 
 
 def longestPalindromicSubString(string):
-    window = dict()
+    # make a copy of string reversed
 
+    reverse = reversed(string)
+
+    # compare reverseString with string for longest
     for i in range(len(string)):
         if string[i] not in window:
             window[string[i]] += 1
             print(window)
+
+        else:
+
 
     return
 
