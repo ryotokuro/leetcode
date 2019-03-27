@@ -26,23 +26,24 @@ def longestSubstring(string):
     if len(string) == 1:
         return 1
 
-    longest, substring = "", ""
-
+    longest = ""
     # idea: create a SLIDING window
-
+    window = dict()
 
     # initially the bounds of the window is i, j (where j = i intially)
 
     # check if j exists in the window
     # if not, then we extend, and slide the window further
-    for i in range(len(string)):
-        window = dict()
-        for j in range(i, len(string)):
-            if j not in window:
-                continue
-            # if it does, then we restart the window
-            else:
-                break
+    i = j = 0
+    while i < len(string):
+        if string[j] not in window:
+            window[string[j]] = j  # store position so i can retrieve later?
+            j += 1  # increment j
+
+        # if it does, then we restart the window
+        else:
+            i += 1
+            j = i
 
     return len(longest)
 
