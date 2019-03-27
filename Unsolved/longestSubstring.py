@@ -14,42 +14,42 @@
 # At the end, compare maxCount with the current count
 
 # WHAT I NEED
-# substring - tracks current substring
-# longest - stores the longest substring
+# hash map to keep track of where things are
+# longest store
 
 # OPTIONAL
 # index - keep track of index :)
 
 
 def longestSubstring(string):
-    # in the case of an empty string
-    if len(string) == 1:
-        return 1
-
     # idea: create a SLIDING window
     window = dict()
 
-    # initially the bounds of the window is i, j (where j = i intially)
+    longest = i = j = 0  # initially the bounds of the window is i, j (where j = i intially)
 
-    # check if j exists in the window
-    # if not, then we extend, and slide the window further
-    longest = i = j = 0
     while i < len(string) and j < len(string):
-        # print(string[j], string[j] not in window)
-        if string[j] not in window:
+        #print(string[j], string[j] not in window)
+        if string[j] not in window:  # check if j exists in the window
+            # if not, then we extend, and slide the window further
             window[string[j]] = j  # store position so i can retrieve later?
             j += 1  # increment j
-        # if it does, then we restart the window
-        else:
+            # print(window)
+
+        else:  # if it does, then we reset the window
             if len(window) > longest:
                 longest = len(window)
-                window.clear()
-            i += 1
+            # even if the length of the new window isn't the longest, we have to clear it
+            window.clear()
+            i = j
             j = i
-            if longest >= (len(string) - i):  # breaks early if the length of the longest substring > characters left
+            if longest > (len(string) - i):  # breaks early if the length of the longest substring > characters left
+                print(i)
                 break
 
-        # ideally would like to break early if length is bigger
+    # ideally would like to break early if length is bigger
+    if len(window) > longest:
+        longest = len(window)
+        window.clear()
 
     return longest
 
