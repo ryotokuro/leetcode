@@ -26,7 +26,6 @@ def longestSubstring(string):
     if len(string) == 1:
         return 1
 
-    longest = ""
     # idea: create a SLIDING window
     window = dict()
 
@@ -34,18 +33,25 @@ def longestSubstring(string):
 
     # check if j exists in the window
     # if not, then we extend, and slide the window further
-    i = j = 0
-    while i < len(string):
+    longest = i = j = 0
+    while i < len(string) and j < len(string):
+        # print(string[j], string[j] not in window)
         if string[j] not in window:
             window[string[j]] = j  # store position so i can retrieve later?
             j += 1  # increment j
-
         # if it does, then we restart the window
         else:
+            if len(window) > longest:
+                longest = len(window)
+                window.clear()
             i += 1
             j = i
+            if longest >= (len(string) - i):  # breaks early if the length of the longest substring > characters left
+                break
 
-    return len(longest)
+        # ideally would like to break early if length is bigger
+
+    return longest
 
 
 # SETUP INPUT METHOD
