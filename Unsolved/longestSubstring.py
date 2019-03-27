@@ -35,9 +35,11 @@ def longestSubstring(string):
 
     # check if j exists in the window
     # if not, then we extend, and slide the window further
-
+    if j not in window:
+        continue
     # if it does, then we restart the window
-
+    else:
+        break
     # check letter doesn't already exist in the substring
     # e.g. if('a' not in substring)
     for i in range(len(string)):
