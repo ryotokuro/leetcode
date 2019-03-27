@@ -28,6 +28,16 @@ def longestSubstring(string):
 
     longest, substring = "", ""
 
+    # idea: create a SLIDING window
+    window = dict()
+
+    # initially the bounds of the window is i, j (where j = i intially)
+
+    # check if j exists in the window
+    # if not, then we extend, and slide the window further
+
+    # if it does, then we restart the window
+
     # check letter doesn't already exist in the substring
     # e.g. if('a' not in substring)
     for i in range(len(string)):
