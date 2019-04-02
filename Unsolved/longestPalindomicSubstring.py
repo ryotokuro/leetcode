@@ -9,13 +9,12 @@
 def longestPalindromicSubString(string):
     # make a copy of string reversed
     stringIndexes = dict()
-    reversedString = reversed(string)
-    print(reversedString)
 
+    i = 0
+    j = len(string)
+    print(string[i:j])
+    print(string[i:j][::-1])  # [::-1] is the reverse slicing
     # compare reversedString with string for longest substring
-    for i in range(len(string)):
-        if string[i] == reversedString[i]:
-            stringIndexes[string[i]] = 1
 
     return "yes"
 
