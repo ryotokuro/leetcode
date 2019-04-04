@@ -6,18 +6,18 @@
 # Note: "aba" is also a valid answer.
 
 # OWN EXAMPLE - sliding window
-sfdobabado
+sfdobabado 9
 j-1
 
-sfdobabad
+sfdobabad 0 to 8
 or
-fdobabado
+fdobabado 1 to 9
 
 j-1
 
-sfdobaba
-fdobabad
-dobabado
+sfdobaba 0 to 7
+fdobabad 1 to 8
+dobabado 2 to 9
 
 j-1
 
@@ -65,14 +65,16 @@ def longestPalindromicSubString(string):
     # make a copy of string reversed
     stringIndexes = dict()
 
-    for i in range(len(string)):
     j = len(string)
+    gap = 0
+    for i in range(len(string)):
+        # window is i to j length
+            
+        if string[i:j] == string[i:j][::-1]: # print(string[i:j][::-1])  # [::-1] is the reverse slicing
+            break # we go from the biggest combinations, so the first encounter is the biggest
 
-    print(string[i:j])
-    print(string[i:j][::-1])  # [::-1] is the reverse slicing
-    # compare reversedString with string for longest substring
 
-    return "yes"
+    return string[i:j]
 
 
 string = str(input())
