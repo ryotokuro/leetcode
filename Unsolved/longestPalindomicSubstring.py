@@ -63,14 +63,16 @@
 
 
 def longestPalindromicSubString(string):
-    start = end = i = j = 0  # keeps track of increasing difference
+    start = end = i = 0  # keeps track of increasing difference
+    j = len(string)-1
     done = False
 
+
     while i != j:
-        # window is from i to j (length)
         if string[i:j] != string[i:j][::-1]:
             gap = 1
             for k in range(gap):
+                print(k)
                 print(string[i+k:j+k] == string[i+k:j+k][::-1])
                 if string[i+k:j+k] == string[i+k:j+k][::-1]:  # print(string[i:j][::-1])  # [::-1] is the reverse slicing
                     start = i+k
@@ -81,6 +83,8 @@ def longestPalindromicSubString(string):
                 break
         else:
             break
+
+        j -= gap
         gap += 1  # increase gap after each failed attempt
 
     return string[start:end]
