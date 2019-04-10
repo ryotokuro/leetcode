@@ -64,7 +64,8 @@
 
 def longestPalindromicSubString(string):
     # initial values
-    gap = i = 1  # keeps track of increasing difference
+    gap = 1  # keeps track of increasing difference
+    i = 0
     j = len(string)  # set j as the end boundary
     done = False  # done will determine whether we have found a match or not
 
