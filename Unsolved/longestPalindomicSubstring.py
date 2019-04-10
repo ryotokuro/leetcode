@@ -85,7 +85,7 @@ def longestPalindromicSubString(string):
 
         j -= gap
         gap += 1  # increase gap after each failed attempt
-
+        print(string[start:end], "yes")
     return string[start:end]
 
 
