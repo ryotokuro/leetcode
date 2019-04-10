@@ -67,15 +67,14 @@ def longestPalindromicSubString(string):
     j = len(string)-1
     done = False
 
-
     while i != j:
         if string[i:j] != string[i:j][::-1]:
             gap = 1
-            for k in range(gap):
+            for k in range(gap):  # from 0 to gap
                 print(k)
-                print(string[i+k:j+k] == string[i+k:j+k][::-1])
-                if string[i+k:j+k] == string[i+k:j+k][::-1]:  # print(string[i:j][::-1])  # [::-1] is the reverse slicing
-                    start = i+k
+                print(string[i+k:j+k] == string[i+k:j+k][::-1])  # i and j move along according to k
+                if string[i+k:j+k] == string[i+k:j+k][::-1]:  # [::-1] is the reverse slicing
+                    start = i+k  # save variables in case it works
                     end = j+k
                     done = True
                     break  # we go from the biggest combinations, so the first encounter is the biggest
