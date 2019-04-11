@@ -13,15 +13,20 @@ def reverse(num):
         num = num[:len(num)-1][::-1]  # returns the reversed number excluding the last digit
 
     # if the converted string and casted back is different
+
     elif int(num[::-1]) >= pow(2, 31):
-        num = 0  # num overflows
+            num = 0  # num overflows
 
     else:  # num is a normal number
         num = num[::-1]  # simply reverses the number
 
+    if '.' in num:
+        return float(num)
+
     return int(num)  # returns result from conditions above
 
-print(reverse( ))
+
+print(reverse(''))
 print(reverse(123))  # 321
 print(reverse(-123))  # -321
 print(reverse(120))  # 21
