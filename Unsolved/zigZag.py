@@ -51,24 +51,44 @@
 # - Going down a row you add 2 to the first number and subtract 2 from the second
 # - It should stop when one reaches the other
 
+import math
+
 
 def convert(s, numRows):  # returns the converted string
-    converted = "s[0]"
-    diagonal = numRows+1  # k should be the diagonal gap
-    # inter should be the bridge gap
-    for i in range(0, len(s)):  # go row by row
-        # try to append each
-        while i+k < len(s):  # ensure we don't go out of bounds
-            converted.append(s[i+k])  # PAHN - need to somehow make sure it goes to the second row
+    converted = "s[0]"  # first entry is always the first letter
+    addA = addFL = len(s)+(math.floor(len(s)/2))
+    addB = 0
+
+    for i in range(numRows):  # go row by row
+        if i == 0 or i == numRows-1:  # first or last row
+            while i+addFL < len(s):
+                converted += s[i+addFL]
+
+        else:  # its an intermediate row
+            aTurn = True  # starts off with a being first
+            while i < len(s):
+                if aTurn and i+addA < len(s):  # alternate to B
+                    converted += s[i + addA]
+                    aTurn = not aTurn
+
+                elif not aTurn and i+addB < len(s):
+                    converted += s[i + addB]
+                    aTurn = not aTurn
+
+                else:
+                    # next row
+                    addA -= 2  # need to decrease by 2
+                    addB += 2  # increase by 2
+                    break
     return converted
 
 
 print(convert("PAYPALISHIRING", 3))  # Test Case 1
 
-print("PAYPALISHIRING", 4)  # Test Case 2
+print(convert("PAYPALISHIRING", 4))  # Test Case 2
 
 # User Input Methods
-string = str(input())
-numRows = int(input())
+# string = str(input())
+# numRows = int(input())
 
-print(convert(string, numRows))
+# print(convert(string, numRows))
