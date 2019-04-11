@@ -7,6 +7,8 @@
 # A P L S I I G
 # Y   I   R
 
+# --------------------------------------
+
 # And then read line by line: "PAHNAPLSIIGYIR"
 #
 # EXAMPLE 2
@@ -21,13 +23,26 @@
 # -> If I simply add on the number of rows - 2 (the fence posts) then I can get the first row simply
 # -> This also consistently retrieves another term for the subsequent rows, but I need to get the extra bits
 
-PAYPALISHIRING numrows = 5
-##
+# 1: 0   6    12   all +6
+# 2: 1 5 7 11 13   +4 then +2 pattern
+# 3: 2 4 8 10      +2 +4 pattern
+# 4:  3   9        all +6
+
+# ---------------------------------------
+
+# numrows = 5
+#
 # P       H
 # A     S I
 # Y   I   R
 # P L     I G
 # A       N
+
+# 1: 0 8        all +8
+# 2: 1 7 9      +6  +2
+# 3: 2 6 10     +4  +4
+# 4: 3 5 11 13  +2  +6
+# 5:  4  12     all +8
 
 
 def convert(s, numRows):  # returns the converted string
