@@ -1,3 +1,4 @@
+# PROBLEM
 # Implement atoi which converts a string to an integer.
 # The function first:
 # - discards as many whitespace characters as necessary until the first non-whitespace character is found.
@@ -14,22 +15,47 @@
 
 # If no valid conversion could be performed, a zero value is returned.
 
-def myAToI(string): # go until no white space
-    for i in range(string):
-        if string[i] != ' ':
-            start = i
 
-    if string[i] == '-' or string[i] == '+' or string[i] in range(9):
+def myAToI(string):
+    validNumber = str(list(range(10))) # just compute it once so i dont need to keep doing it
+    for i in range(len(string)):
+        if string[i] != ' ':  # iterate until no white space
+            start = end = i  # i is now where the first non-white space character is
+            break
+
+    if string[i] == '-' or string[i] == '+':
+        start = i
+        i += 1
+
+    if string[i] in validNumber:  # if the first character is a +, - or number
+        # print(i, "It is a valid number")
         while i < len(string):
-            if string[i] in range(9):
+            if string[i] in validNumber:
                 i += 1
                 continue
-        break
+            break
+        end = i
 
-    # if overflow yikes
+    else:  # if no valid conversion
+        return 0
 
-    # if no valid conversion
-        # return 0
-    return int(string[start:])
+    # if overflow return the MAX integer (2^32 - 1)
+    if int(string[start:end]) > ((2 ** 31) - 1):
+        return (2 ** 31) - 1
 
+    elif int(string[start:end]) < -((2 ** 31) - 1):
+        return -(2 ** 31) - 1
+
+    return int(string[start:end])  # returns the valid number type-casted as an int
+
+
+# TEST CASES
+print(myAToI("-42"))  # -42
+print(myAToI("+wa"))  # 0
+print(myAToI("4193 with words"))  #4193
+print(myAToI("     +42"))  # 42
+print(myAToI("-91283472332"))  # -2147483648
+
+# USER INPUT
 string = str(input())
+print(myAToI(string))
