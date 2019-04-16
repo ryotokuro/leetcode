@@ -25,11 +25,11 @@ def myAToI(string):
             start = i  # i is now where the first non-white space character is
             break
 
-    if string[i] == '-' or string[i] == '+':
+    if string[i] == '-' or string[i] == '+':  # if a negative or positive symbol is found
         start = i
         i += 1
 
-    if i+1 is len(string):
+    if i+1 is len(string):  # if no meaningful number exists in the list
         return 0
 
     validNumber = str(list(range(10)))  # just compute it once so i don't need to keep doing it
@@ -37,9 +37,9 @@ def myAToI(string):
     if string[i] in validNumber:  # if the first character is a +, - or number
         # print(i, "It is a valid number")
         while i < len(string):
-            if string[i] in validNumber:
+            print(i, string[i])
+            if string[i] in validNumber and string[i] != ' ':
                 i += 1
-                print(i, string[i])
                 continue
             break
         end = i
@@ -60,11 +60,11 @@ def myAToI(string):
 
 # TEST CASES
 print(myAToI("   +0 123"))
-print(myAToI("-42"))  # -42
-print(myAToI("+wa"))  # 0
-print(myAToI("4193 with words"))  #4193
-print(myAToI("     +42"))  # 42
-print(myAToI("-91283472332"))  # -2147483648
+# print(myAToI("-42"))  # -42
+# print(myAToI("+wa"))  # 0
+# print(myAToI("4193 with words"))  #4193
+# print(myAToI("     +42"))  # 42
+# print(myAToI("-91283472332"))  # -2147483648
 
 # USER INPUT
 string = str(input())
