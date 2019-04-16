@@ -17,15 +17,19 @@
 
 
 def myAToI(string):
-    validNumber = str(list(range(10))) # just compute it once so i dont need to keep doing it
+    if string == "" or string == "+" or string == "-":
+        return 0
+
     for i in range(len(string)):
         if string[i] != ' ':  # iterate until no white space
-            start = end = i  # i is now where the first non-white space character is
+            start = i  # i is now where the first non-white space character is
             break
 
     if string[i] == '-' or string[i] == '+':
         start = i
         i += 1
+
+    validNumber = str(list(range(10)))  # just compute it once so i dont need to keep doing it
 
     if string[i] in validNumber:  # if the first character is a +, - or number
         # print(i, "It is a valid number")
@@ -50,6 +54,7 @@ def myAToI(string):
 
 
 # TEST CASES
+print(myAToI(""))
 print(myAToI("-42"))  # -42
 print(myAToI("+wa"))  # 0
 print(myAToI("4193 with words"))  #4193
