@@ -28,7 +28,7 @@ def maxArea(input):
     heightToIndex = dict()
     for i in range(len(input)):
         heightToIndex[input[i]] = i
-    
+
     width = input[] - input[]
     return height*width
 

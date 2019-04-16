@@ -29,13 +29,17 @@ def myAToI(string):
         start = i
         i += 1
 
-    validNumber = str(list(range(10)))  # just compute it once so i dont need to keep doing it
+    if i+1 is len(string):
+        return 0
+
+    validNumber = str(list(range(10)))  # just compute it once so i don't need to keep doing it
 
     if string[i] in validNumber:  # if the first character is a +, - or number
         # print(i, "It is a valid number")
         while i < len(string):
             if string[i] in validNumber:
                 i += 1
+                print(i, string[i])
                 continue
             break
         end = i
@@ -43,6 +47,7 @@ def myAToI(string):
     else:  # if no valid conversion
         return 0
 
+    print(start, end)
     # if overflow return the MAX integer (2^32 - 1)
     if int(string[start:end]) > ((2 ** 31) - 1):
         return (2 ** 31) - 1
@@ -54,7 +59,7 @@ def myAToI(string):
 
 
 # TEST CASES
-print(myAToI(""))
+print(myAToI("   +0 123"))
 print(myAToI("-42"))  # -42
 print(myAToI("+wa"))  # 0
 print(myAToI("4193 with words"))  #4193
