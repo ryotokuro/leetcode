@@ -53,13 +53,15 @@ def myAToI(string):
         return (2 ** 31) - 1
 
     elif int(string[start:end]) < -((2 ** 31) - 1):
-        return -(2 ** 31) - 1
+        return -(2 ** 31)
 
     return int(string[start:end])  # returns the valid number type-casted as an int
 
 
 # TEST CASES
-print(myAToI("   +0 123"))
+# print(myAToI("   +0 123"))
+print(myAToI("1"))
+# print(myAToI("-91283472332"))
 # print(myAToI("-42"))  # -42
 # print(myAToI("+wa"))  # 0
 # print(myAToI("4193 with words"))  #4193
