@@ -26,4 +26,16 @@
 # - X can be placed before L (50) and C (100) to make 40 and 90.
 # - C can be placed before D (500) and M (1000) to make 400 and 900.
 
+def intToRoman(num: int):
+    return
 
+
+# TEST CASES
+intToRoman(3)  # III
+intToRoman(4)  # IV
+intToRoman(9)  # IX
+intToRoman(58)  # LVIII
+intToRoman(1994)  # MCMXCIV
+
+num = int(input())
+intToRoman(num)
