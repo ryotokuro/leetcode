@@ -44,21 +44,27 @@ def intToRoman(num: int):
         elif num >= 10:
             romanNumeral += "X"
             num -= 10
+        elif num >= 9:
+            romanNumeral += "IX"
+            num -= 9
         elif num >= 5:
             romanNumeral += "V"
             num -= 5
+        elif num >= 4:
+            romanNumeral += "IV"
+            num -= 4
         elif num >= 1:
             romanNumeral += "I"
             num -= 1
-    return
+    return romanNumeral
 
 
 # TEST CASES
-intToRoman(3)  # III
-intToRoman(4)  # IV
-intToRoman(9)  # IX
-intToRoman(58)  # LVIII
-intToRoman(1994)  # MCMXCIV
+print(intToRoman(3))  # III
+print(intToRoman(4))  # IV
+print(intToRoman(9))  # IX
+print(intToRoman(58))  # LVIII
+print(intToRoman(1994))  # MCMXCIV
 
 num = int(input())
 intToRoman(num)
