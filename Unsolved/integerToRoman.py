@@ -27,6 +27,14 @@
 # - C can be placed before D (500) and M (1000) to make 400 and 900.
 
 def intToRoman(num: int):
+    romanNumeral = ""
+    while num != 0:
+        if num > 1000:
+            romanNumeral += "M"
+            num -= 1000
+        elif num > 500:
+            romanNumeral += "D"
+            num -= 500
     return
 
 
