@@ -29,12 +29,27 @@
 def intToRoman(num: int):
     romanNumeral = ""
     while num != 0:
-        if num > 1000:
+        if num >= 1000:
             romanNumeral += "M"
             num -= 1000
-        elif num > 500:
+        elif num >= 500:
             romanNumeral += "D"
             num -= 500
+        elif num >= 100:
+            romanNumeral += "C"
+            num -= 100
+        elif num >= 50:
+            romanNumeral += "L"
+            num -= 50
+        elif num >= 10:
+            romanNumeral += "X"
+            num -= 10
+        elif num >= 5:
+            romanNumeral += "V"
+            num -= 5
+        elif num >= 1:
+            romanNumeral += "I"
+            num -= 1
     return
 
 
