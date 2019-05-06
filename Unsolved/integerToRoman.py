@@ -32,27 +32,51 @@ def intToRoman(num: int):
         if num >= 1000:
             romanNumeral += "M"
             num -= 1000
+
+        elif num >= 900:
+            romanNumeral += "CM"
+            num -= 900
+
         elif num >= 500:
             romanNumeral += "D"
             num -= 500
+
+        elif num >= 400:
+            romanNumeral += "CD"
+            num -= 400
+
         elif num >= 100:
             romanNumeral += "C"
             num -= 100
+
+        elif num >= 90:
+            romanNumeral += "XC"
+            num -= 90
+
         elif num >= 50:
             romanNumeral += "L"
             num -= 50
+
+        elif num >= 40:
+            romanNumeral += "XL"
+            num -= 40
+
         elif num >= 10:
             romanNumeral += "X"
             num -= 10
+
         elif num >= 9:
             romanNumeral += "IX"
             num -= 9
+
         elif num >= 5:
             romanNumeral += "V"
             num -= 5
+
         elif num >= 4:
             romanNumeral += "IV"
             num -= 4
+
         elif num >= 1:
             romanNumeral += "I"
             num -= 1
