@@ -46,7 +46,7 @@ def romanToInteger(roman):
                 total += 900
                 i += 1
             elif i + 1 < len(roman) and roman[i+1] == "D":
-                total += 500
+                total += 400
                 i += 1
             else:
                 total += 100
@@ -88,6 +88,7 @@ print(romanToInteger("IV"))       # 4
 print(romanToInteger("IX"))       # 9
 print(romanToInteger("LVIII"))    # 58
 print(romanToInteger("MCMXCIV"))  # 1994
+print(romanToInteger("MCDLXXVI"))
 
 # INPUT READER
 roman = str(input())
