@@ -34,7 +34,7 @@
 def romanToInteger(roman):
     i = total = 0
     while i < len(roman):
-        #print("first", i, roman[i])
+        # print(roman[i] == "I", i, roman[i])
         if roman[i] == "M":
             total += 1000
 
@@ -42,10 +42,10 @@ def romanToInteger(roman):
             total += 500
 
         elif roman[i] == "C":
-            if roman[i+1] == "M":
+            if i+1 < len(roman) and roman[i+1] == "M":
                 total += 900
                 i += 1
-            elif roman[i+1] == "D":
+            elif i + 1 < len(roman) and roman[i+1] == "D":
                 total += 500
                 i += 1
             else:
@@ -55,12 +55,11 @@ def romanToInteger(roman):
             total += 50
 
         elif roman[i] == "X":
-            if i+1 < len(roman):
-                if roman[i+1] == "C":
-                    total += 90
-                    i += 1
+            if i+1 < len(roman) and roman[i+1] == "C":
+                total += 90
+                i += 1
 
-                elif roman[i+1] == "L":
+            elif i+1 < len(roman) and roman[i+1] == "L":
                     total += 40
                     i += 1
             else:
@@ -70,16 +69,15 @@ def romanToInteger(roman):
             total += 5
 
         elif roman[i] == "I":
-            if i+1 < len(roman):
-                if roman[i+1] == "X":
+            if i+1 < len(roman) and roman[i+1] == "X":
                     total += 9
                     i += 1
-                elif roman[i+1] == "V":
+            elif i + 1 < len(roman) and roman[i+1] == "V":
                     total += 4
                     i += 1
-
             else:
                 total += 1
+
         i += 1
     return total
 
