@@ -35,6 +35,12 @@ def romanToInteger():
     return 1
 
 
-romanToInteger("III")
+# TESTS
+romanToInteger("III")      # 3
+romanToInteger("IV")       # 4
+romanToInteger("IX")       # 9
+romanToInteger("LVIII")    # 58
+romanToInteger("MCMXCIV")  # 1994
 
+# INPUT READER
 roman = str(input())
