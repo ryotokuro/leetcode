@@ -31,16 +31,66 @@
 # Input is guaranteed to be within the range from 1 to 3999.
 
 
-def romanToInteger():
+def romanToInteger(roman):
+    i = total = 0
+    print(roman, len(roman))
+    while i < len(roman):
+        print("first", roman[i])
+        if roman[i] == "M":
+            total += 1000
+
+        elif roman[i] == "D":
+            total += 500
+
+        elif roman[i] == "C":
+            if roman[i+1] == "M":
+                total += 900
+                i += 1
+            elif roman[i+1] == "D":
+                total += 500
+                i += 1
+            else:
+                total += 100
+
+        elif roman[i] == "L":
+            total += 50
+
+        elif roman[i] == "X":
+            if i+1 < len(roman):
+                if roman[i+1] == "C":
+                    total += 90
+                    i += 1
+
+                elif roman[i+1] == "L":
+                    total += 40
+                    i += 1
+            else:
+                total += 10
+
+        elif roman[i] == "V":
+            total += 5
+
+        elif roman[i] == "I":
+            if i+1 < len(roman):
+                if roman[i+1] == "X":
+                    total += 9
+                    i += 1
+                elif roman[i+1] == "V":
+                    total += 4
+                    i += 1
+
+            else:
+                total += 1
+        i += 1
     return 1
 
 
 # TESTS
-romanToInteger("III")      # 3
-romanToInteger("IV")       # 4
-romanToInteger("IX")       # 9
-romanToInteger("LVIII")    # 58
-romanToInteger("MCMXCIV")  # 1994
+print(romanToInteger("III"))      # 3
+print(romanToInteger("IV"))       # 4
+print(romanToInteger("IX"))       # 9
+print(romanToInteger("LVIII"))    # 58
+print(romanToInteger("MCMXCIV"))  # 1994
 
 # INPUT READER
 roman = str(input())
