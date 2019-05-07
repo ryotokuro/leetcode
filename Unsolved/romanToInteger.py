@@ -33,9 +33,8 @@
 
 def romanToInteger(roman):
     i = total = 0
-    print(roman, len(roman))
     while i < len(roman):
-        print("first", roman[i])
+        #print("first", i, roman[i])
         if roman[i] == "M":
             total += 1000
 
@@ -82,7 +81,7 @@ def romanToInteger(roman):
             else:
                 total += 1
         i += 1
-    return 1
+    return total
 
 
 # TESTS
