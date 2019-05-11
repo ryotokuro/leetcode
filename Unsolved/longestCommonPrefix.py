@@ -3,8 +3,16 @@
 # Edge Case: If there is no common prefix, return an empty string "".
 # Note: All inputs are in lowercase letters a-z
 
-def longestCommonPrefix():
-# to avoid overflow, want to use the length of the smallest word in the list
+def longestCommonPrefix(strings):
+    # to avoid overflow, want to use the length of the smallest word in the list
+    shortLen = min(strings, key=len)
+
+    # procedurally need to compare letters
+    for i in range(shortLen):
+        for j in range(len(strings)):
+            if strings[j][]
+
+    return strings[0[:shortLen]]  # return longest common prefix using first element in the list
 
 
 # TESTS
