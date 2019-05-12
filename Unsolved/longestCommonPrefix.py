@@ -6,12 +6,13 @@
 def longestCommonPrefix(strings):
     # to avoid overflow, want to use the length of the smallest word in the list
     shortLen = min(strings, key=len)
-    testPrefix = commonPrefix = ""
+    commonPrefix = ""
 
     # procedurally need to compare letters
     for i in range(1, len(shortLen)):
         testPrefix = strings[0][:i]
-        for j in range(len(strings)):
+
+        for j in range(1, len(strings)):
             if strings[j][:i] != testPrefix:
                 break
             else:
@@ -21,5 +22,5 @@ def longestCommonPrefix(strings):
 
 
 # TESTS
-print(longestCommonPrefix(["flower","flow","flight"]))  # Output "fl"
-print(longestCommonPrefix(["dog","racecar","car"]))     # Output: ""
+print(longestCommonPrefix(["flower", "flow", "flight"]))  # Output "fl"
+print(longestCommonPrefix(["dog", "racecar", "car"]))     # Output: ""
