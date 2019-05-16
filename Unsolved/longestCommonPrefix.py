@@ -11,7 +11,7 @@ def longestCommonPrefix(strings):
         if len(strings) == 1:
             return strings[0]
 
-        if strings != []:
+        elif strings != []:
             shortLen = min(strings, key=len)
             finished = False
 
