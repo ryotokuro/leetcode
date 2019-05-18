@@ -14,7 +14,8 @@ def longestCommonPrefix(strings):
             # to avoid overflow, we use the length of the smallest word in the list
             commonPrefix = ""
 
-            if strings != []:
+            # note: in python empty sequences are FALSE
+            if not strings:  # if the string is not empty (implicit boolean when string is empty)
                 shortLen = min(strings, key=len)
                 finished = False
 
