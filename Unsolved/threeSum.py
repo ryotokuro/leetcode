@@ -12,3 +12,9 @@
 #   [-1, 0, 1],
 #   [-1, -1, 2]
 # ]
+
+# def threeSum(numArray: List[int]) -> List[List[int]]:
+def threeSum(numArray: list[int]):
+    return numArray
+
+numArray = input()
