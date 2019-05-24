@@ -15,6 +15,11 @@
 
 # def threeSum(numArray: List[int]) -> List[List[int]]:
 def threeSum(numArray: list[int]):
+    solution = list()  # an array of arrays
+    # add set
+    for i in range():
+        
+
     return numArray
 
 numArray = input()
