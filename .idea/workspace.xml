@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70d74819-75d6-42ce-926d-b24710b6e488" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Unsolved/threeSum.py" beforeDir="false" afterPath="$PROJECT_DIR$/Unsolved/threeSum.py" afterDir="false" />
-    </list>
+    <list default="true" id="70d74819-75d6-42ce-926d-b24710b6e488" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/Unsolved/threeSum.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="442">
-              <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+              <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -398,7 +396,7 @@
     <entry file="file://$PROJECT_DIR$/Unsolved/threeSum.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
         </state>
       </provider>
     </entry>
