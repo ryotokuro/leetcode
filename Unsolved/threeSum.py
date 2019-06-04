@@ -23,6 +23,8 @@ def threeSum(numArray: list[int]):
         map[] = numArray
 
     for i in range(numArray):
+        if numArray[i] +  == 0:
+
         # look for the -x or +y which makes 0 and see if they exist in the list
         # if so then create
 
