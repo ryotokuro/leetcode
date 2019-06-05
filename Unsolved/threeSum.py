@@ -20,10 +20,10 @@ def threeSum(numArray: list[int]):
     map = dict()
     for i in range(numArray):
         #
-        map[] = numArray
+        map[i] = numArray
 
-    for i in range(numArray):
-        if numArray[i] +  == 0:
+    for key in map:
+        if map[key] + map[key+1]  == 0:
 
         # look for the -x or +y which makes 0 and see if they exist in the list
         # if so then create
