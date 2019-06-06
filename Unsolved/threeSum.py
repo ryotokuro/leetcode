@@ -17,16 +17,9 @@
 def threeSum(numArray: list[int]):
     solution = list()  # an array of arrays
     # map numbers in the set to a hashmap
-    map = dict()
-    for i in range(numArray):
-        #
-        map[i] = numArray
-
-    for key in map:
-        if map[key] + map[key+1]  == 0:
-
-        # look for the -x or +y which makes 0 and see if they exist in the list
-        # if so then create
+    for i in range(numArray-1):
+        for j in range(i+1, numArray):
+            numArray[i] + numArray[j]
 
     return numArray
 
