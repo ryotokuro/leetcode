@@ -15,12 +15,18 @@
 
 # def threeSum(numArray: List[int]) -> List[List[int]]:
 def threeSum(numArray: list[int]):
-    solution = list()  # an array of arrays
-    # map numbers in the set to a hashmap
+    trial = solution = list()  # an array of arrays
+    map = dict()
+
     for i in range(numArray-1):
         for j in range(i+1, numArray):
-            numArray[i] + numArray[j]
+            trial.append(numArray[i] + numArray[j])
+            # need to get the index too!
+            print(numArray[i]+numArray[j])
+            map[i,j] = numArray[i]+numArray[j]
 
+    for i in range(trial):
+        
     return numArray
 
 numArray = input()
