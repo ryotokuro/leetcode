@@ -26,7 +26,7 @@ def threeSum(numArray: list[int]):
             map[i,j] = numArray[i]+numArray[j]
 
     for i in range(trial):
-        
+
     return numArray
 
 numArray = input()
