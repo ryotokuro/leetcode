@@ -23,10 +23,11 @@ def threeSum(numArray: list[int]):
             trial.append(numArray[i] + numArray[j])
             # need to get the index too!
             print(numArray[i]+numArray[j])
-            map[i,j] = numArray[i]+numArray[j]
+            map[i, j] = numArray[i]+numArray[j]
 
     for i in range(trial):
-
+        print(map)
     return numArray
+
 
 numArray = input()
