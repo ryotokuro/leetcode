@@ -31,11 +31,11 @@
 
 def fizzBuzz(n: int):
     string = []
-    #i = 1
+
+    i = 1
     # for i in range(i, len(n)):
-    for i in enumerate(n):
     # for loop is SLOWER than while loop if we use RANGE
-    #while i <= n:
+    while i <= n:
         if i % 3 == 0 and i % 5 == 0:
             string.append("FizzBuzz")
         elif i % 3 == 0:
