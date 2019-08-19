@@ -1,3 +1,17 @@
+# link: https://leetcode.com/problems/single-number/
+
+# PROBLEM
+# Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+#
+# Note:
+# Your algorithm should have a linear runtime complexity i.e. O(n).
+# Could you implement it without using extra memory?
+
+# EXAMPLE
+# Input: [2,2,1]
+# Output: 1
+
+
 def singleNumber(nums):
     for i in range(1, len(nums)):
         nums[0] ^= nums[i]  # XOR returns 0 if the numbers are the same and 1 if they're different
