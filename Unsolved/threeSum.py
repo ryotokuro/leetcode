@@ -13,6 +13,7 @@
 #   [-1, -1, 2]
 # ]
 
+
 # def threeSum(numArray: List[int]) -> List[List[int]]:
 def threeSum(numArray: list[int]):
     trial = solution = list()  # an array of arrays
