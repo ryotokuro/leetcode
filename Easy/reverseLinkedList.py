@@ -9,7 +9,7 @@ class ListNode:
 
 
 def reverseList(head: ListNode) -> ListNode:
-    # METHOD 1: very simple with temp variable
+    # # METHOD 1: very simple with temp variable
     # if head is None:
     #     return head
     #
@@ -27,8 +27,20 @@ def reverseList(head: ListNode) -> ListNode:
     # head = curr
     # return head
 
-    # METHOD 2: no temp variables (Slightly less memory but same speed)
+    # # METHOD 2: no temp variables (Slightly less memory but same speed)
+    # new_head = None
+    # while head:
+    #     head.next, head, new_head = new_head, head.next, head
+    # return new_head
+
+    # METHOD 3: using 1 temp variable (FASTER)
     new_head = None
+    if head is not None:  # because there is an if it can be faster :)
+        temp = head.next
     while head:
-        head.next, head, new_head = new_head, head.next, head
+        head.next = new_head
+        new_head = head
+        head = temp
+        if head is not None:
+            temp = temp.next
     return new_head
