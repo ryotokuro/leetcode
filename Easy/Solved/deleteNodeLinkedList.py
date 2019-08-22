@@ -19,6 +19,7 @@ class ListNode:
         self.val = x
         self.next = None
 
+
 def deleteNode(self, node):
     tmp = node.next
     while tmp:
