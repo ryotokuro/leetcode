@@ -11,3 +11,21 @@
 # Output: [4,1,9]
 # Explanation:
 # - You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.
+
+
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+def deleteNode(self, node):
+    tmp = node.next
+    while tmp:
+        node.val = tmp.val
+        if tmp.next is not None:
+            node = tmp
+            tmp = tmp.next
+        else:
+            break
+    node.next = None
