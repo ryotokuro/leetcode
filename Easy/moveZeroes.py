@@ -14,14 +14,23 @@
 
 
 def moveZeros(nums):  # function parameter is a list of ints
-    # BEFORE
-    print(nums)
+    print(nums)  # TESTING: to see how it looks before
+    if 0 not in nums:  # don't waste time going through if no 0s
+        return  # exit early always
 
-    
+    i = 0
+    end = len(nums)
+    print(end)
+    while i < end:
+        if nums[i] == 0:
+            print(nums[i])
+            del nums[i]  # del is a LOT faster than nums.remove() because remove() need to look for the zero
+            nums.append(0)
+            end -= 1
+        else:
+            i += 1
 
     # # SLOWER (200ms)
-    # if 0 not in nums:
-    #     return
     #
     # for i in range(len(nums)):
     #     if nums[i] == 0:
@@ -44,4 +53,5 @@ def moveZeros(nums):  # function parameter is a list of ints
 
 
 # nums = map(int, input().split(' '))
-moveZeros([0, 1, 0, 3, 12])
+# moveZeros([0, 1, 0, 3, 12])
+moveZeros([0, 0, 1])
