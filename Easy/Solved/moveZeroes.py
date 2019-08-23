@@ -18,6 +18,7 @@ def moveZeros(nums):  # function parameter is a list of ints
     if 0 not in nums:  # don't waste time going through if no 0s
         return  # exit early always
 
+    # FASTEST using del() (56ms)
     i = 0
     end = len(nums)
     print(end)
