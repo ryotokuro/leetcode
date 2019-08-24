@@ -20,15 +20,16 @@ def majorityElement(nums):
     # Most efficient O(n) time and O(1) space
     # https://www.cs.utexas.edu/~moore/best-ideas/mjrty/
     majority = nums[0]
-    count = 0
-    for num in nums:
+    count = 1
+    for i in range(1, len(nums)):
         if count == 0:
-            majority = num
+            majority = nums[i]
             count = 1
-        elif num == majority:
+        elif nums[i] == majority:
             count += 1
-        elif num != majority:
+        elif nums[i] != majority:
             count -= 1
+    return majority
 
     # majority = len(nums) // 2
     # occur = {}
