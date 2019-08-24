@@ -31,13 +31,15 @@ def validAnagram(s, t):
 
     # So from here we know that they're both the same length and non-empty
     s = list(s)
+    s.sort()
     t = list(t)
-    for letter in s:
-        if letter in t:
-            t.remove(letter)
-            print(t)
-        else:
+    t.sort()
+
+    i = 0
+    while i < len(s):
+        if s[i] != t[i]:
             return False
+        i += 1
 
     return True
 
