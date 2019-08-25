@@ -19,6 +19,7 @@
 
 
 def validAnagram(s, t):
+    print()
     print(s, t)  # self-testing purposes
 
     # EDGE CASES
@@ -30,20 +31,36 @@ def validAnagram(s, t):
         return True
 
     # So from here we know that they're both the same length and non-empty
-    s = list(s)
-    s.sort()
-    t = list(t)
-    t.sort()
+    # USING A DICTIONARY TO COMPARE LETTER FREQUENCIES
+    # sorting is a bottleneck so lets remove that
+    # simply store count of letters in each string in a dict
+    # constant lookup so we can just compare dicts
+    s_chars = {}
+    t_chars = {}
+    for i in s:
+        s_chars[i] = s_chars.get(i, 0) + 1
 
-    i = 0
-    while i < len(s):
-        if s[i] != t[i]:
-            return False
-        i += 1
+    for j in t:
+        t_chars[j] = s_chars.get(j, 0) + 1
+    print(s_chars, t_chars, sep='\n')
+    return s_chars == t_chars
 
-    return True
+    # SLOW (80ms, O(nlogn) solution due to timsort (worst case))
+    # s = list(s)
+    # s.sort()
+    # t = list(t)
+    # t.sort()
+    #
+    # i = 0
+    # while i < len(s):
+    #     if s[i] != t[i]:
+    #         return False
+    #     i += 1
+    #
+    # return True
 
 
 # s, t = input().split(' ')
 print(validAnagram('anagram', 'nagaram'))  # True
 print(validAnagram('rat', 'car'))  # False
+print(validAnagram('a', 'a'))  # False

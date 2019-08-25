@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70d74819-75d6-42ce-926d-b24710b6e488" name="Default Changelist" comment="" />
+    <list default="true" id="70d74819-75d6-42ce-926d-b24710b6e488" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Easy/validAnagram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Easy/validAnagram.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,8 +42,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Easy/validAnagram.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+            <state relative-caret-position="211">
+              <caret line="32" column="74" lean-forward="true" selection-start-line="32" selection-start-column="74" selection-end-line="32" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -299,7 +301,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33261105" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33261105" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -533,8 +535,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Easy/validAnagram.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+        <state relative-caret-position="211">
+          <caret line="32" column="74" lean-forward="true" selection-start-line="32" selection-start-column="74" selection-end-line="32" selection-end-column="74" />
         </state>
       </provider>
     </entry>
