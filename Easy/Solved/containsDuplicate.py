@@ -19,15 +19,30 @@
 
 
 def containsDuplicate(arr):
-    # O(n): Using Dictionary (140ms)
-    seen = {}
+    # GENIUS solution, using a list comparison
+    # Makes this trivial in Python
+    # return len(arr) > len(set(arr))  # One-line but its slower (144ms)
 
+    # Since I don't actually need the value in the key-value a dict provides
+    # It'd be more useful to use a hash-set which will use less memory
+    # O(n): Using Hash-set (136ms)
+    count = set()
     for i in arr:
-        if i not in seen:
-            seen[i] = 1
+        if i not in count:
+            count.add(i)
         else:
             return True
     return False
+
+    # # O(n): Using Dictionary (140ms)
+    # seen = {}
+    #
+    # for i in arr:
+    #     if i not in seen:
+    #         seen[i] = 1
+    #     else:
+    #         return True
+    # return False
 
 
 print(containsDuplicate([1, 2, 3, 1]))  # True
