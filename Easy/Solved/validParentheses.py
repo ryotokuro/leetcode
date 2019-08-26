@@ -31,30 +31,37 @@
 
 
 def validParentheses(s: str):
-        if s == "":
-            return True
+    # EDGE CASE
+    # 1. Empty String
+    if s == "":
+        return True
 
-        brackets = {}
-        for i in s:
-            if i not in brackets:
-                brackets[i] = 1
-            else:
-                brackets[i] += 1
-        print(s, brackets)
-        if '()[]{}' in s:
-            return brackets['('] == brackets[')'] and brackets['['] == brackets[']'] and brackets['{'] == brackets['}']
-        elif '()' in s:
-            return brackets['('] == brackets[')']
-        elif '[]' in s:
-            return brackets['['] == brackets[']']
-        elif '{}' in s:
-            return brackets['{'] == brackets['}']
-        print('None passed')
-        return False
+    brackets = {}  # Dictionary in form {Bracket : Position of Complement}
+    for pos, val in enumerate(s):
+        if val not in brackets:
+            if val in '([{':
+                brackets[val] = pos + 1
+            else:  # it's a closing bracket
+                if val == ']' and '[' not in brackets or val == ')' and '(' not in brackets or val == '}' and '{' not in brackets:
+                    print('No front bracket')
+                    return False  # There was a closing bracket BEFORE its opening bracket partner appeared
+                
+    print(s, brackets)
+
+    # if '()[]{}' in s:
+    #     return brackets['('] == brackets[')'] and brackets['['] == brackets[']'] and brackets['{'] == brackets['}']
+    # elif '()' in s:
+    #     return brackets['('] == brackets[')']
+    # elif '[]' in s:
+    #     return brackets['['] == brackets[']']
+    # elif '{}' in s:
+    #     return brackets['{'] == brackets['}']
+    # print('None passed')
+    return False
 
 
 # TESTS
-print(validParentheses('()'))  # true
+print(validParentheses('()]'))  # true
 print()
 print(validParentheses('()[]{}'))  # true
 print()
