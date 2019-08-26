@@ -31,20 +31,37 @@
 
 
 def validParentheses(s: str):
-    brackets = {}
-    for i in s:
-        if i not in brackets:
-            brackets[i] = 1
-        else:
-            brackets[i] += 1
-    if ']' in s:
-        print('y')
-        return brackets['('] == brackets[')'] and brackets['['] == brackets[']'] and brackets['{'] == brackets['}']
-    elif '()' in s:
-        print('b')
-        return brackets['('] == brackets[')']
-    return True
+        if s == "":
+            return True
+
+        brackets = {}
+        for i in s:
+            if i not in brackets:
+                brackets[i] = 1
+            else:
+                brackets[i] += 1
+        print(s, brackets)
+        if '()[]{}' in s:
+            return brackets['('] == brackets[')'] and brackets['['] == brackets[']'] and brackets['{'] == brackets['}']
+        elif '()' in s:
+            return brackets['('] == brackets[')']
+        elif '[]' in s:
+            return brackets['['] == brackets[']']
+        elif '{}' in s:
+            return brackets['{'] == brackets['}']
+        print('None passed')
+        return False
 
 
 # TESTS
 print(validParentheses('()'))  # true
+print()
+print(validParentheses('()[]{}'))  # true
+print()
+print(validParentheses('(]'))  # false
+print()
+print(validParentheses('([)]'))  # false
+print()
+print(validParentheses('{[]}'))  # true
+print()
+print(validParentheses('([]'))  # false
