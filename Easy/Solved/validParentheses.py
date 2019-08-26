@@ -36,32 +36,47 @@ def validParentheses(s: str):
     if s == "":
         return True
 
+    length = len(s)
     # 2. Odd Length (not really an edge case but ensures there are valid pairs)
-    if len(s) % 2 != 0:  # if its an odd length
+    if length % 2 != 0:  # if its an odd length
         print('Odd Length')
         return False  # then there aren't PAIRS of brackets definitely
 
     # 3. Has to have either (), [] or {} in the middle
-    middle = s[(len(s)//2)-1:(len(s)//2)+1]
+    middle = s[(length//2)-1:(length//2)+1]  # slice to get middle chunk
     if middle not in '()[]{}':
         print('middle:', middle)
         print('Middle not valid')
         return False
 
     # DONT NEED A DICTIOANRY I JUST ITERATE START AND END AND CHECK IF SAME POGCHAMPS
-
-    brackets = {}  # Dictionary in form {Bracket : Position of Complement}
-    for pos, val in enumerate(s):
-        if val not in brackets:
-            if val in '([{':
-                brackets[val] = pos + 1
-            else:  # it's a closing bracket
-                if val == ']' and '[' not in brackets or val == ')' and '(' not in brackets or val == '}' and '{' not in brackets:
-                    print('No front bracket')
-                    return False  # There was a closing bracket BEFORE its opening bracket partner appeared
-                # Ok we've got matching things now good
-
-    print(s, brackets)
+    start = 0
+    end = length-1
+    while start < end:  # because its even i need to check if they ever cross paths
+        if s[start] == '(':
+            if s[end] != ')':
+                return False
+        elif s[start] == '[':
+            if s[end] != ']':
+                return False
+        else:  # assuming only receiving brackets, it has to be curly brace
+            if s[end] != '}':
+                return False
+        start += 1
+        end -= 1
+    return True
+    # brackets = {}  # Dictionary in form {Bracket : Position of Complement}
+    # for pos, val in enumerate(s):
+    #     if val not in brackets:
+    #         if val in '([{':
+    #             brackets[val] = pos + 1
+    #         else:  # it's a closing bracket
+    #             if val == ']' and '[' not in brackets or val == ')' and '(' not in brackets or val == '}' and '{' not in brackets:
+    #                 print('No front bracket')
+    #                 return False  # There was a closing bracket BEFORE its opening bracket partner appeared
+    #             # Ok we've got matching things now good
+    #
+    # print(s, brackets)
 
     # if '()[]{}' in s:
     #     return brackets['('] == brackets[')'] and brackets['['] == brackets[']'] and brackets['{'] == brackets['}']
@@ -72,11 +87,11 @@ def validParentheses(s: str):
     # elif '{}' in s:
     #     return brackets['{'] == brackets['}']
     # print('None passed')
-    return False
+    # return False
 
 
 # TESTS
-print(validParentheses('()]'))  # true
+print(validParentheses('()'))  # true
 print()
 print(validParentheses('()[]{}'))  # true
 print()
