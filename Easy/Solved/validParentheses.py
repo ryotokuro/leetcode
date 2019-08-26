@@ -42,7 +42,7 @@ def validParentheses(s: str):
         print('Odd Length')
         return False  # then there aren't PAIRS of brackets definitely
 
-    # 40ms using 13.8MB Space
+    # O(n) solution: 28-40ms using 13.8MB Space
     # Using a STACK: uses append() and pop(), where pop() can return the top
     stack = []
     for i in s:
