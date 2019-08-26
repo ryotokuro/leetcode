@@ -31,10 +31,24 @@
 
 
 def validParentheses(s: str):
-    # EDGE CASE
+    # EDGE CASES
     # 1. Empty String
     if s == "":
         return True
+
+    # 2. Odd Length (not really an edge case but ensures there are valid pairs)
+    if len(s) % 2 != 0:  # if its an odd length
+        print('Odd Length')
+        return False  # then there aren't PAIRS of brackets definitely
+
+    # 3. Has to have either (), [] or {} in the middle
+    middle = s[(len(s)//2)-1:(len(s)//2)+1]
+    if middle not in '()[]{}':
+        print('middle:', middle)
+        print('Middle not valid')
+        return False
+
+    # DONT NEED A DICTIOANRY I JUST ITERATE START AND END AND CHECK IF SAME POGCHAMPS
 
     brackets = {}  # Dictionary in form {Bracket : Position of Complement}
     for pos, val in enumerate(s):
@@ -45,7 +59,8 @@ def validParentheses(s: str):
                 if val == ']' and '[' not in brackets or val == ')' and '(' not in brackets or val == '}' and '{' not in brackets:
                     print('No front bracket')
                     return False  # There was a closing bracket BEFORE its opening bracket partner appeared
-                
+                # Ok we've got matching things now good
+
     print(s, brackets)
 
     # if '()[]{}' in s:
