@@ -42,76 +42,47 @@ def validParentheses(s: str):
         print('Odd Length')
         return False  # then there aren't PAIRS of brackets definitely
 
-    # 3. Has to have either (), [] or {} in the middle
-    middle = s[(length//2)-1:(length//2)+1]  # slice to get middle chunk
-    if middle not in '()[]{}':
-        print('middle:', middle)
-        print('Middle not valid')
+    # 40ms using 13.8MB Space
+    # Using a STACK: uses append() and pop(), where pop() can return the top
+    stack = []
+    for i in s:
+        print('STACK:', stack)
+        if not stack:  # empty lists (returns False if empty)
+            if i == '(':
+                stack.append(')')
+            elif i == '[':
+                stack.append(']')
+            elif i == '{':
+                stack.append('}')
+            else:
+                return False  # premature close before an open exists
+        else:  # the stack has stuff in it already
+            if i == ')' or i == ']' or i == '}':
+                if i != stack.pop():
+                    return False
+            else:
+                if i == '(':
+                    stack.append(')')
+                elif i == '[':
+                    stack.append(']')
+                elif i == '{':
+                    stack.append('}')
+    if not stack:
+        return True
+    else:
         return False
-
-    # # Only works for Nested Loops :(
-    # start = 0
-    # end = length-1
-    # while start < end:  # because its even i need to check if they ever cross paths
-    #     if s[start] == '(':
-    #         if s[end] != ')':
-    #             return False
-    #     elif s[start] == '[':
-    #         if s[end] != ']':
-    #             return False
-    #     else:  # assuming only receiving brackets, it has to be curly brace
-    #         if s[end] != '}':
-    #             return False
-    #     start += 1
-    #     end -= 1
-    # return True
-
-    brackets = {}  # Dictionary in form {Bracket : Position of Complement}
-    for pos, val in enumerate(s):
-        if val not in brackets:
-            if val in '([{':
-                if val not in brackets:
-                    if '(' in brackets:
-                        brackets['('] += 2
-                    if '[' in brackets:
-                        brackets['['] += 2
-                    if '{' in brackets:
-                        brackets['{'] += 2
-                    brackets[val] = pos + 1
-            else:  # it's a closing bracket
-                if val == ']' and '[' not in brackets or val == ')' and '(' not in brackets or val == '}' and '{' not in brackets:
-                    print('No front bracket')
-                    return False  # There was a closing bracket BEFORE its opening bracket partner appeared
-                # Ok we've got matching things now good
-                if val == ')':
-                    if brackets['('] != pos:
-                        print('Failed not matching')
-                        return False
-
-    print(brackets)
-    return True
-
-    # if '()[]{}' in s:
-    #     return brackets['('] == brackets[')'] and brackets['['] == brackets[']'] and brackets['{'] == brackets['}']
-    # elif '()' in s:
-    #     return brackets['('] == brackets[')']
-    # elif '[]' in s:
-    #     return brackets['['] == brackets[']']
-    # elif '{}' in s:
-    #     return brackets['{'] == brackets['}']
-    # print('None passed')
-    # return False
 
 
 # TESTS
-print(validParentheses("[(({})}]"))  # true
-print()
-print(validParentheses('()[]{}'))  # true
-print()
-print(validParentheses('(]'))  # false
-print()
-print(validParentheses('([)]'))  # false
-print()
-print(validParentheses('{[]}'))  # true
-print()
-print(validParentheses('([]'))  # false
+print(validParentheses("(("))  # false
+# print(validParentheses("[(({}))]"))  # true
+# print()
+# print(validParentheses('()[]{}'))  # true
+# print()
+# print(validParentheses('(]'))  # false
+# print()
+# print(validParentheses('([)]'))  # false
+# print()
+# print(validParentheses('{[]}'))  # true
+# print()
+# print(validParentheses('([]'))  # false
