@@ -30,9 +30,21 @@
 # Output: true
 
 
-def validParentheses():
+def validParentheses(s: str):
+    brackets = {}
+    for i in s:
+        if i not in brackets:
+            brackets[i] = 1
+        else:
+            brackets[i] += 1
+    if ']' in s:
+        print('y')
+        return brackets['('] == brackets[')'] and brackets['['] == brackets[']'] and brackets['{'] == brackets['}']
+    elif '()' in s:
+        print('b')
+        return brackets['('] == brackets[')']
     return True
 
 
 # TESTS
-validParentheses('()')  # true
+print(validParentheses('()'))  # true
