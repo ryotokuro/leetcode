@@ -36,15 +36,16 @@
 
 
 def removeDuplicates(nums):
-    # 116ms solution (quite slow, O(n))
-    length = len(nums)
+    # # 116ms solution (quite slow, O(n))
+    # length = len(nums)
+    #
+    # # EDGE CASES
+    # if length == 0:
+    #     return 0
+    # elif length == 1:
+    #     return 1
 
-    # EDGE CASES
-    if length == 0:
-        return 0
-    elif length == 1:
-        return 1
-
+    # 104ms solution (XOR)
     prev = 0
     curr = 1
     while curr < length:
