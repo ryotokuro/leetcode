@@ -19,26 +19,33 @@
 
 
 def plusOne(digits):
+    # more practical solution O(n)
+    # the point here is trying to avoid using in-built functions
+    num = 0  # to store the converted number
+    for i in range(len(digits)):
+        num += pow(10, len(digits)-1-i)*digits[i]  # get the decimal value of the digit and add that to num
+    return list(str(num + 1))
+
     # # alternate solution using a for loop O(n)
     # - in feasible because you have to push new heads to the list at the end too
     # - much easier without having to do so
-    if digits[-1] == 9:
-        digits[-1] = 0
-        for i in range(len(digits)-2, -1, -1):
-            if i == 0:
-                if digits[i]+1 == 10:
-                    digits[i] = 0
-                    digits.insert(0, 1)
-                    break
-                else:
-                    digits[i] += 1
-            elif digits[i]+1 == 10:
-                digits[i] = 0
-            else:
-                digits[i] += 1
-                break
-
-    return list(map(str, digits))
+    # if digits[-1] == 9:
+    #     digits[-1] = 0
+    #     for i in range(len(digits)-2, -1, -1):
+    #         if i == 0:
+    #             if digits[i]+1 == 10:
+    #                 digits[i] = 0
+    #                 digits.insert(0, 1)
+    #                 break
+    #             else:
+    #                 digits[i] += 1
+    #         elif digits[i]+1 == 10:
+    #             digits[i] = 0
+    #         else:
+    #             digits[i] += 1
+    #             break
+    #
+    # return list(map(str, digits))
 
     # # 36ms, 13.8MB
     # digits = list(map(str, digits))  # convert to string instances
