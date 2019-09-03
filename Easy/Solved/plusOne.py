@@ -19,12 +19,34 @@
 
 
 def plusOne(digits):
-    # 36ms, 13.8MB
-    digits = list(map(str, digits))  # convert to string instances
-    converted_num = int(''.join(digits))  # join the array and convert it into an integer
+    # # alternate solution using a for loop O(n)
+    # - in feasible because you have to push new heads to the list at the end too
+    # - much easier without having to do so
+    if digits[-1] == 9:
+        digits[-1] = 0
+        for i in range(len(digits)-2, -1, -1):
+            if i == 0:
+                if digits[i]+1 == 10:
+                    digits[i] = 0
+                    digits.insert(0, 1)
+                    break
+                else:
+                    digits[i] += 1
+            elif digits[i]+1 == 10:
+                digits[i] = 0
+            else:
+                digits[i] += 1
+                break
 
-    return list(str(converted_num+1))  # add 1 to that number, convert it to a str and then into a list
+    return list(map(str, digits))
+
+    # # 36ms, 13.8MB
+    # digits = list(map(str, digits))  # convert to string instances
+    # converted_num = int(''.join(digits))  # join the array and convert it into an integer
+    #
+    # return list(str(converted_num+1))  # add 1 to that number, convert it to a str and then into a list
 
 
 print(plusOne([1, 2, 3]))
 print(plusOne([4, 3, 2, 1]))
+print(plusOne([1, 9, 9]))
