@@ -1,33 +1,53 @@
 # Given a 32-bit signed integer, reverse digits of an integer.
-#class Solution:
-    #def reverse(self, num: int) -> int:
-def reverse(num):
-    num = str(num)
 
-    # num is a negative number
-    if num[0] == "-":
-        num = "-" + num[1:len(num)][::-1]  # returns reversed number holding the negative sign
+#def reverse(self, num: int) -> int:
+def reverse(n):
+    num = str(n) # Convert to string for simple manipulation
 
-    # if the last digit is 0 (redundant)
-    elif num[-1] == "0":
-        num = num[:len(num)-1][::-1]  # returns the reversed number excluding the last digit
+    # CASES
+    # Empty input
+    if not num:
+        return 0
+    
+    # One digit number
+    if len(num) == 1:
+        return int(num)
 
-    # if the converted string and casted back is different
+    MAX = pow(2, 31) - 1
 
-    elif int(num[::-1]) >= pow(2, 31):
-            num = 0  # num overflows
+    # Negative number
+    if num[0] == '-':
+        # Check for underflow
+        if abs(int(num[:0:-1])) > MAX:
+            return 0
+        num = '-' + num[1:len(num)][::-1]  # Return reversed number with negative sign
 
-    else:  # num is a normal number
+    # Reversed number is too big
+    elif abs(int(num[::-1])) > MAX:
+        return 0  # number overflowed
+
+    # Safe: num is a normal number
+    else:
         num = num[::-1]  # simply reverses the number
 
+    # RETURN
+    # For floating point numbers
     if '.' in num:
         return float(num)
 
-    return int(num)  # returns result from conditions above
+    # Return as an integer
+    return int(num)
 
 
-print(reverse(''))
+# Normal
 print(reverse(123))  # 321
+# Negative
 print(reverse(-123))  # -321
+# 0 at the end
 print(reverse(120))  # 21
-print(reverse(7463847412))  # overflows
+# 0 as input
+print(reverse(0))
+# Overflow
+print(reverse(1534236469))
+# Negative Overflow
+print(reverse(-2147483648))
