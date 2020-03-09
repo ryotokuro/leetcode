@@ -50,7 +50,7 @@ def countAndSay(n):
             # if it's the last digit
             if i == len(counter)-1:
                 modified += str(same) + curr
-
+                
             else:
                 after = counter[i+1]
                 # compare curr and prev
@@ -59,9 +59,9 @@ def countAndSay(n):
                     
                 # if the next number is different
                 else:
-                    same = 1
                     # create new expression
                     modified += str(same) + curr
+                    same = 1
                 
         counter = modified
         print(n, ":", counter)
