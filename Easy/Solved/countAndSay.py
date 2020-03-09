@@ -16,8 +16,7 @@
 #
 # Note: Each term of the sequence of integers will be represented as a string.
 #
-#
-#
+# EXAMPLES
 # Example 1:
 #
 # Input: 1
@@ -28,59 +27,59 @@
 # Output: "1211"
 
 def countAndSay(n):
-    # start off with 1
-    # 1 :   'one one'         i.e. 11
-    # 11:   'two one'         i.e. 21
-    # 21:   'one two one one' i.e. 1211
-    # 1211: 'one one one two two one' i.e. 111221
-    # 111221: 'three one two two one one'
-    
     # Base Case
-
-
     counter = '1'
     
     while n > 1:
         same = 1
         modified = ''
-        
+
+        # Loop through counter's digits
         for i in range(len(counter)):
             curr = counter[i]
-
-            # if it's the last digit
+            
+            # If curr is pointing to the last digit
             if i == len(counter)-1:
                 modified += str(same) + curr
                 
             else:
                 after = counter[i+1]
-                # compare curr and prev
+                # Compare curr with the next digit
                 if curr == after:
                     same += 1
                     
-                # if the next number is different
+                # Otherwise, curr and the next digit are different
                 else:
-                    # create new expression
+                    # Append the new expression
                     modified += str(same) + curr
-                    same = 1
-                
-        counter = modified
-        print(n, ":", counter)
+                    same = 1  # Reset counter
+                    
+        counter = modified  # Overwrite counter
+        # print(n, ":", counter)  # debugging
         
         n -= 1
 
     return counter
 
-
-#print(countAndSay(1))
+# 3 -> 21
 countAndSay(3)
 print()
+
+# 4 -> 1211
 countAndSay(4)
 print()
+
+# 5 -> 111221
 countAndSay(5)
 print()
-# PROBLEM HERE
+
+# 6 -> 312211
 countAndSay(6)
 print()
+
+# 7 -> 13112221
 countAndSay(7)
+
+# 8 -> 1113213211
 print()
 countAndSay(8)
