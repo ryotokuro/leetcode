@@ -34,17 +34,53 @@ def countAndSay(n):
     # 21:   'one two one one' i.e. 1211
     # 1211: 'one one one two two one' i.e. 111221
     # 111221: 'three one two two one one'
-    if n == 1:
-        return '1'
+    
+    # Base Case
 
-    # start off with 1
-    num = list('11')
-    i = 1
-    for i in range(len(n)):
-        for i in range()
 
-    print(num)
-    return '5'
+    counter = '1'
+    
+    while n > 1:
+        same = 1
+        modified = ''
+        
+        for i in range(len(counter)):
+            curr = counter[i]
 
-countAndSay(1)
+            # if it's the last digit
+            if i == len(counter)-1:
+                modified += str(same) + curr
+
+            else:
+                after = counter[i+1]
+                # compare curr and prev
+                if curr == after:
+                    same += 1
+                    
+                # if the next number is different
+                else:
+                    same = 1
+                    # create new expression
+                    modified += str(same) + curr
+                
+        counter = modified
+        print(n, ":", counter)
+        
+        n -= 1
+
+    return counter
+
+
+#print(countAndSay(1))
+countAndSay(3)
+print()
 countAndSay(4)
+print()
+countAndSay(5)
+print()
+# PROBLEM HERE
+countAndSay(6)
+print()
+countAndSay(7)
+print()
+countAndSay(8)
