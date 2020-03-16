@@ -25,8 +25,8 @@ def isSymmetric(root):
     node = root
     queue = []
     
-    level = 1  # Start from the second level
-    numNodes = 2  # Second level has 2 nodes
+    level = 0  # Start from the second level
+    numNodes = 1
     nodesAtLevel = []  # Stores the nodes on the given level
     
     while node:  # while node is not None
@@ -55,114 +55,93 @@ def isSymmetric(root):
             # If the current level is asymmetric
             #print(nodesAtLevel[:len(nodesAtLevel)//2], list(reversed(nodesAtLevel[len(nodesAtLevel)//2:]))) 
             if nodesAtLevel[:len(nodesAtLevel)//2] != list(reversed(nodesAtLevel[len(nodesAtLevel)//2:])):
-                #print("Uneven:", nodesAtLevel)
+                print("Uneven:", nodesAtLevel)
                 return False
             
             # Else, proceed onto the next level
             level += 1
-            numNodes = pow(2, level)
+            numNodes = 2*len(queue)
             nodesAtLevel = []
         
     return True
 
-
-
 def isSymmetric(root):
-    # Base Case: The tree only consists of the root node
-    if root:
-        if not root.left:
-            if not root.right:
-                return True
+    # Edge Case: Root is None
+    if not root:
+        return True
+
+    # Edge Case: Root is only node in tree
+    if not root.left:
+        if not root.right:
+            return True
     
-    queue = []  # store children nodes
-    node = root  # save root to current working node temporarily
-    left = []
-    right = []
+    queue = [root]
+    window = []
     
-    while node:
-        if node == root:
-            if root.left.val != root.right.val:
-                return False
-            node = root.left
-            queue.append(root.right)
-        
-        # Start on the left
-        if not left:
-            # Left child (L1)
-            if node.left:
-                queue.append(node.left)
-                left.append(node.left.val)
-            else:
-                left.append(None)
+    num_nodes = 0
+    expected_nodes = 2
+    actual_nodes = 0
+    
+    while queue:
+        curr = queue.pop(0)
 
-            # Right child (R1)
-            if node.right:
-                queue.append(node.right)
-                left.append(node.right.val)
-            else:
-                left.append(None)
+        # Filter NoneType out
+        if curr.left:
+            queue.append(curr.left)
+            window.append(curr.left.val)
+            actual_nodes += 1
+        else:
+            window.append(None)
 
-            node = queue.pop(0)
-                
-        # Reverse the order for the right side
-        if not right:
-            # Right child (R2)
-            if node.right:
-                queue.append(node.right)
-                right.append(node.right.val)
-            else:
-                right.append(None)
+        # Apparently a normal check still allows NoneType through??
+        if curr.right:
+            queue.append(curr.right)
+            window.append(curr.right.val)
+            actual_nodes += 1
+        else:
+            window.append(None)
 
-            # Left child (L2)
-            if node.left:
-                queue.append(node.left)
-                right.append(node.left.val)
-            else:
-                right.append(None)
+        num_nodes += 2
+        if num_nodes == expected_nodes:
+            # verify symmetry
+            middle = len(window)//2
+            if window[:middle] != list(reversed(window[middle:])):
+                # print("ASYMMETRICAL:", window)
+                return False            
 
-            # If they're not the same, it's asymmetrical
-            if left != right:
-                print(left, "vs", right)
-                return False
-            
-            # Reset lists
-            left = []
-            right = []
+            expected_nodes = actual_nodes*2  # calculate how many nodes we want in the next cycle
+            num_nodes = 0
+            actual_nodes = 0
+            window = []
 
-            # Set new node
-            if queue:
-                node = queue.pop(0)
-            # If queue is empty
-            else:
-                return True
-        
+    return True
 
-# [1, [2, 2], [3, 4, 4, 3]]
-r = TreeNode(1)
-r.left = TreeNode(2)
-r.right = TreeNode(2)
-r.left.left = TreeNode(3)
-r.left.right = TreeNode(4)
-r.right.left = TreeNode(4)
-r.right.right = TreeNode(3)
-print(isSymmetric(r), "\n")
-
-# [1, [2, None], [3, None, None, None]]
-r = TreeNode(1)
-r.left = TreeNode(2)
-r.right = TreeNode(None)
-r.left.left = TreeNode(3)
-print(isSymmetric(r), "\n")
-
-# [1, [2, 2], [None, 3, 3, None]]
-r = TreeNode(1)
-r.left = TreeNode(2)
-r.right = TreeNode(2)
-r.left.left = TreeNode(None)
-r.left.right = TreeNode(3)
-r.right.left = TreeNode(3)
-r.right.right = TreeNode(None)
-print(isSymmetric(r), "\n")
+### [1, [2, 2], [3, 4, 4, 3]]
+##r = TreeNode(1)
+##r.left = TreeNode(2)
+##r.right = TreeNode(2)
+##r.left.left = TreeNode(3)
+##r.left.right = TreeNode(4)
+##r.right.left = TreeNode(4)
+##r.right.right = TreeNode(3)
+##print(isSymmetric(r), "\n")
+##
+### [1, [2, None], [3, None, None, None]]
+##r = TreeNode(1)
+##r.left = TreeNode(2)
+##r.right = TreeNode(None)
+##r.left.left = TreeNode(3)
+##print(isSymmetric(r), "\n")
+##
+### [1, [2, 2], [None, 3, 3, None]]
+##r = TreeNode(1)
+##r.left = TreeNode(2)
+##r.right = TreeNode(2)
+##r.left.left = TreeNode(None)
+##r.left.right = TreeNode(3)
+##r.right.left = TreeNode(3)
+##r.right.right = TreeNode(None)
+##print(isSymmetric(r), "\n")
 
 # [1, [2, 2], [None, 3, None, 3]]
 r = TreeNode(1)
@@ -172,7 +151,7 @@ r.left.left = TreeNode(None)
 r.left.right = TreeNode(3)
 r.right.left = TreeNode(None)
 r.right.right = TreeNode(3)
-print(isSymmetric(r))
+print(isSymmetric(r), "\n")
 
 #[2,3,3,4,null,null,4,null,5,5,null,null,6,6,null,7,8,8,7,9,0,0,1,1,0,0,9]
 r = TreeNode(2)
@@ -184,10 +163,7 @@ r.right.left = TreeNode(None)
 r.right.right = TreeNode(4)
 r.left.left.left = TreeNode(None)
 r.left.left.right = TreeNode(5)
-r.left.right.left = TreeNode(5)
-r.left.right.right = TreeNode(None)
-r.right.left.left = TreeNode(None)
-r.right.left.right = TreeNode(6)
-r.right.right.left = TreeNode(6)
+r.right.right.left = TreeNode(5)
 r.right.right.right = TreeNode(None)
+
 print(isSymmetric(r))
