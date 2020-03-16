@@ -37,7 +37,7 @@ def isSymmetric(root):
             nodesAtLevel.append(node.left.val)
         else:
             nodesAtLevel.append(None)
-            
+    
         if node.right:
             queue.append(node.right)
             nodesAtLevel.append(node.right.val)
@@ -64,6 +64,78 @@ def isSymmetric(root):
             nodesAtLevel = []
         
     return True
+
+
+
+def isSymmetric(root):
+    # Base Case: The tree only consists of the root node
+    if root:
+        if not root.left:
+            if not root.right:
+                return True
+    
+    queue = []  # store children nodes
+    node = root  # save root to current working node temporarily
+    left = []
+    right = []
+    
+    while node:
+        if node == root:
+            if root.left.val != root.right.val:
+                return False
+            node = root.left
+            queue.append(root.right)
+        
+        # Start on the left
+        if not left:
+            # Left child (L1)
+            if node.left:
+                queue.append(node.left)
+                left.append(node.left.val)
+            else:
+                left.append(None)
+
+            # Right child (R1)
+            if node.right:
+                queue.append(node.right)
+                left.append(node.right.val)
+            else:
+                left.append(None)
+
+            node = queue.pop(0)
+                
+        # Reverse the order for the right side
+        if not right:
+            # Right child (R2)
+            if node.right:
+                queue.append(node.right)
+                right.append(node.right.val)
+            else:
+                right.append(None)
+
+            # Left child (L2)
+            if node.left:
+                queue.append(node.left)
+                right.append(node.left.val)
+            else:
+                right.append(None)
+
+            # If they're not the same, it's asymmetrical
+            if left != right:
+                print(left, "vs", right)
+                return False
+            
+            # Reset lists
+            left = []
+            right = []
+
+            # Set new node
+            if queue:
+                node = queue.pop(0)
+            # If queue is empty
+            else:
+                return True
+        
 
 # [1, [2, 2], [3, 4, 4, 3]]
 r = TreeNode(1)
@@ -103,3 +175,19 @@ r.right.right = TreeNode(3)
 print(isSymmetric(r))
 
 #[2,3,3,4,null,null,4,null,5,5,null,null,6,6,null,7,8,8,7,9,0,0,1,1,0,0,9]
+r = TreeNode(2)
+r.left = TreeNode(3)
+r.right = TreeNode(3)
+r.left.left = TreeNode(4)
+r.left.right = TreeNode(None)
+r.right.left = TreeNode(None)
+r.right.right = TreeNode(4)
+r.left.left.left = TreeNode(None)
+r.left.left.right = TreeNode(5)
+r.left.right.left = TreeNode(5)
+r.left.right.right = TreeNode(None)
+r.right.left.left = TreeNode(None)
+r.right.left.right = TreeNode(6)
+r.right.right.left = TreeNode(6)
+r.right.right.right = TreeNode(None)
+print(isSymmetric(r))
