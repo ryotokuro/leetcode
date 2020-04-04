@@ -4,7 +4,8 @@ def maxProfit(prices):
     """List[int] -> int
         Finds max profit from buying one stock and selling it"""
     max_profit = 0
-
+    for price in prices:
+        
     return max_profit
 
 # Tests
