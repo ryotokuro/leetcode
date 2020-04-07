@@ -3,13 +3,13 @@
 def maxProfit(prices):
     """List[int] -> int
         Finds max profit from buying one stock and selling it"""
-    max_profit = 0
     profits = []
     for i in range(len(prices)):
         for j in range(i, len(prices)):
-            profits.append(prices[i] - prices[j])
+            profits.append(prices[j] - prices[i])
+
     print(profits)
-    max_profit = abs(min(min(profits), max_profit))
+    max_profit = max(max(profits), 0)
     return max_profit
 
 
